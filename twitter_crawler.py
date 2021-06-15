@@ -1,5 +1,9 @@
 import tweepy 
 from twitter_credential import *
+import time
+
+# Process start after 10 sec
+time.sleep(10) 
 
 auth =  tweepy.OAuthHandler(consumer_key, consumer_secret)
 
@@ -12,7 +16,7 @@ class MyStreamListener(tweepy.StreamListener):
         print(status.text)
 
     def on_data(self, data):
-        with open('Data/fetched_tweets_try.json','a') as tf:
+        with open('fetched_tweets_try.json','a') as tf:
             tf.write(data)
         return True
 
