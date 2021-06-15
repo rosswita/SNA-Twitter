@@ -12,7 +12,7 @@ class MyStreamListener(tweepy.StreamListener):
         print(status.text)
 
     def on_data(self, data):
-        with open('fetched_tweets_try.json','a') as tf:
+        with open('Data/fetched_tweets_try.json','a') as tf:
             tf.write(data)
         return True
 
@@ -21,11 +21,3 @@ myStream = tweepy.Stream(auth = API.auth, listener=myStreamListener)
 
 myStream.filter(track=['Euro2020'], is_async=True)
 
-
-
-# public_tweet = tweepy.Cursor(API.search, q="euro2021", result_type="popular", tweet_mode="extended").items(20)
-    
-
-# for tweet in public_tweet:
-#     tweet_text = tweet.full_text
-#     print(tweet_text)
