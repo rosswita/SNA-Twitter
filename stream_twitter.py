@@ -10,12 +10,7 @@ class listener(tweepy.StreamListener):
 
     def on_status(self, status):
         userid = status.user.id_str
-        geo = str(status.coordinates)
         text = status.text
-        # if 'euro2020' in status.text.lower():
-        #     print (text)
-        # else:
-        #     return True
         print(userid + ', ' +text)
 
     def on_error(self, status_code):
@@ -45,7 +40,7 @@ twitterStream.filter(locations=[12.30,41.79,12.74,41.96])
 # 41.79,12.74
 # 41.96,12.30
 
-# Italia
+# Italia.
 # 35.56,12.27
 # 47.02,12.19
 # twitterStream.filter(locations=[12.19,35.56,12.27,47.02])
